@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-tbb.users",
+      "appliesTo": "/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-tbb.users.api",
+      "appliesTo": "tbb.users.api/tbb.users.api.sln",
+      "type": "launch"
+    }
+  ]
+}

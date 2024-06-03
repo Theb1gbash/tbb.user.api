@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\tbb.users.api",
+    "\\tbb.users.api\\tbb.users.api",
+    "\\tbb.users.api\\tbb.users.api\\Controllers",
+    "\\tbb.users.api\\tbb.users.api\\Properties"
   ],
-  "SelectedNode": "\\C:\\workspace\\tbb.users.api",
+  "SelectedNode": "\\tbb.users.api\\tbb.users.api.sln",
   "PreviewInSolutionExplorer": false
 }
