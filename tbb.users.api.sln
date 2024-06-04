@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbb.users.api", "tbb.users.api\tbb.users.api.csproj", "{895484A5-2FFE-428B-A2D5-8DCAB5BA2C25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{895484A5-2FFE-428B-A2D5-8DCAB5BA2C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895484A5-2FFE-428B-A2D5-8DCAB5BA2C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895484A5-2FFE-428B-A2D5-8DCAB5BA2C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895484A5-2FFE-428B-A2D5-8DCAB5BA2C25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25C44503-7BDF-4086-AE59-F3C36A8146AD}
+	EndGlobalSection
+EndGlobal
