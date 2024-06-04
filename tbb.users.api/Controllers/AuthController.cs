@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using tbb.users.api.Providers;
 using tbb.users.api.Models;
+using tbb.users.api.Interfaces;
 
 namespace tbb.users.api.Controllers
 {
@@ -37,6 +37,23 @@ namespace tbb.users.api.Controllers
 
             // Additional code for generating and returning JWT token or session management
             return Ok(new { Message = "Login successful", RedirectUrl = "/dashboard" });
+        }
+
+       
+
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegistrationRequest request)
+        {
+            var result = await _userProvider.RegisterUserAsync(request);
+            if (result)
+            {
+                return Ok(new { Message = "Registration successful!" });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Registration failed. Please check the input fields." });
+            }
         }
 
         private bool IsValidEmail(string email)

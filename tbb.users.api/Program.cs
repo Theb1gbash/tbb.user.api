@@ -3,8 +3,10 @@ using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.Text;
+using tbb.users.api.Interfaces;
 using tbb.users.api.Providers;
 using tbb.users.api.Repositories;
+using tbb.users.api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +20,7 @@ builder.Services.AddSwaggerGen();
 // Registering services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserProvider, UserProvider>();
-
+builder.Services.AddScoped<IUserService, UserService>();
 // Configure Dapper (assuming the connection string is in appsettings.json)
 builder.Services.AddTransient<IDbConnection>(sp => new SqlConnection(
     builder.Configuration.GetConnectionString("DefaultConnection")));

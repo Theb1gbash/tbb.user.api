@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System.Data;
 using System.Threading.Tasks;
+using tbb.users.api.Interfaces;
 using tbb.users.api.Models;
 
 namespace tbb.users.api.Repositories
@@ -45,6 +46,14 @@ namespace tbb.users.api.Repositories
         {
             string query = "UPDATE Users SET Password = @Password WHERE Id = @Id";
             await _dbConnection.ExecuteAsync(query, new { user.Password, user.Id });
+        }
+
+        public async Task<User> AddUserAsync(User user)
+        {
+            var query = "INSERT INTO Users (FirstName, LastName, Email, Password, NewsletterSubscription) VALUES (@FirstName, @LastName, @Email, @Password, @NewsletterSubscription); SELECT CAST(SCOPE_IDENTITY() as int)";
+            var userId = await _dbConnection.ExecuteScalarAsync<int>(query, user);
+            user.Id = userId;
+            return user;
         }
     }
 }
