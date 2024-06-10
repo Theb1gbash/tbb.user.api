@@ -9,5 +9,9 @@
         public string Password { get; set; }
         public bool RememberMe { get; set; }
         public bool NewsletterSubscription { get; set; }
+
+        public string UserType { get; set; } // "common" or "organizer"
+        public string OrganizationName { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

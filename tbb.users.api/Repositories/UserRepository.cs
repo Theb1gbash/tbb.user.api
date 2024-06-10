@@ -50,8 +50,21 @@ namespace tbb.users.api.Repositories
 
         public async Task<User> AddUserAsync(User user)
         {
-            var query = "INSERT INTO Users (FirstName, LastName, Email, Password, NewsletterSubscription) VALUES (@FirstName, @LastName, @Email, @Password, @NewsletterSubscription); SELECT CAST(SCOPE_IDENTITY() as int)";
-            var userId = await _dbConnection.ExecuteScalarAsync<int>(query, user);
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            var query = "INSERT INTO Users (FirstName, LastName, Email, Password, NewsletterSubscription, UserType, OrganizationName, ContactNumber) " +
+                        "VALUES (@FirstName, @LastName, @Email, @Password, @NewsletterSubscription, @UserType, @OrganizationName, @ContactNumber); " +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)";
+            var userId = await _dbConnection.ExecuteScalarAsync<int>(query, new
+            {
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                Password = hashedPassword,
+                user.NewsletterSubscription,
+                user.UserType,
+                user.OrganizationName,
+                user.ContactNumber
+            });
             user.Id = userId;
             return user;
         }
